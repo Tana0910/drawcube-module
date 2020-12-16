@@ -1,7 +1,7 @@
-// ƒOƒ[ƒoƒ‹ƒ‚ƒWƒ…[ƒ‹ƒtƒ‰ƒOƒƒ“ƒg‚ÌéŒ¾
+ï»¿// ã‚°ãƒ­ãƒ¼ãƒãƒ«ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ãƒ•ãƒ©ã‚°ãƒ¡ãƒ³ãƒˆã®å®£è¨€
 module;
-// ‚±‚±‚©‚çƒ‚ƒWƒ…[ƒ‹‚ðéŒ¾ (export module xxx) ‚·‚éŽè‘O‚Ü‚Å‚ªƒOƒ[ƒoƒ‹ƒ‚ƒWƒ…[ƒ‹‚É‘®‚·‚é
-// ‚±‚±‚Åƒwƒbƒ_[ƒtƒ@ƒCƒ‹‚ðƒCƒ“ƒNƒ‹[ƒh‚·‚é
+// ã“ã“ã‹ã‚‰ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã‚’å®£è¨€ (export module xxx) ã™ã‚‹æ‰‹å‰ã¾ã§ãŒã‚°ãƒ­ãƒ¼ãƒãƒ«ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã«å±žã™ã‚‹
+// ã“ã“ã§ãƒ˜ãƒƒãƒ€ãƒ¼ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ã™ã‚‹
 
 #include <vector>
 #include <fstream>
@@ -12,7 +12,7 @@ module;
 // C++20
 #include <numbers>
 
-// Win32API‚ð—p‚¢‚½ƒpƒX‚ÌŽæ“¾
+// Win32APIã‚’ç”¨ã„ãŸãƒ‘ã‚¹ã®å–å¾—
 #include <Shlwapi.h>
 #pragma comment(lib, "Shlwapi.lib")
 
@@ -26,7 +26,7 @@ module;
 // Comptr
 #include <atlcomcli.h>
 
-// ƒ‚ƒWƒ…[ƒ‹‚ÌéŒ¾
+// ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã®å®£è¨€
 export module dxgraphic;
 
 export namespace DXGraphic
@@ -35,14 +35,14 @@ export namespace DXGraphic
 	{
 	private:
 		HWND m_WindowHandle = nullptr;
-		// ‹@”\ƒŒƒxƒ‹, ƒtƒH[ƒ}ƒbƒg
+		// æ©Ÿèƒ½ãƒ¬ãƒ™ãƒ«, ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆ
 		D3D_FEATURE_LEVEL featurelevel = D3D_FEATURE_LEVEL_11_0;
 		UINT swapchaincount = 1;
 		DXGI_FORMAT swapchainformat = DXGI_FORMAT_B8G8R8A8_UNORM;
 		DXGI_FORMAT depthstencilformat = DXGI_FORMAT_D24_UNORM_S8_UINT;
 		DXGI_SAMPLE_DESC sampledesc = { 1, 0 };
 
-		// ƒRƒA‚Æ‚È‚éˆ—‚ðs‚¤‚½‚ß‚Ì•Ï”
+		// ã‚³ã‚¢ã¨ãªã‚‹å‡¦ç†ã‚’è¡Œã†ãŸã‚ã®å¤‰æ•°
 		CComPtr<ID3D11Device> device;
 		CComPtr<ID3D11DeviceContext> context;
 		CComPtr<IDXGISwapChain> swapchain;
@@ -57,7 +57,7 @@ export namespace DXGraphic
 		CComPtr<ID3D11PixelShader> pixelshader;
 		CComPtr<ID3D11InputLayout> inputlayout;
 
-		// ’è”ƒoƒbƒtƒ@
+		// å®šæ•°ãƒãƒƒãƒ•ã‚¡
 		CComPtr<ID3D11Buffer> matrixbuffer;
 
 
@@ -66,16 +66,16 @@ export namespace DXGraphic
 
 		UINT numindices = 0;
 
-		// DirectXŽZp—pƒ}ƒgƒŠƒbƒNƒX
+		// DirectXç®—è¡“ç”¨ãƒžãƒˆãƒªãƒƒã‚¯ã‚¹
 		DirectX::XMMATRIX d3dworldmatrix = DirectX::XMMatrixIdentity();
 		DirectX::XMMATRIX d3dviewmatrix = DirectX::XMMatrixIdentity();
 		DirectX::XMMATRIX d3dprojmatrix = DirectX::XMMatrixIdentity();
 
-		// ƒJƒƒ‰ˆÊ’u, ’Ž‹“_
+		// ã‚«ãƒ¡ãƒ©ä½ç½®, æ³¨è¦–ç‚¹
 		float m_cameraposition[3]{ 3.5f, 3.5f, 3.5f };
 		float m_lookatpoint[3]{ 0.0f, 0.0f, 0.0f };
 
-		// ƒJƒƒ‰‚Ìã•ûŒü‚ð”½“]‚³‚¹‚éƒtƒ‰ƒO
+		// ã‚«ãƒ¡ãƒ©ã®ä¸Šæ–¹å‘ã‚’åè»¢ã•ã›ã‚‹ãƒ•ãƒ©ã‚°
 		bool m_camupset = false;
 
 		struct Vertex
@@ -293,7 +293,7 @@ bool DXGraphic::CDXGraphic::CreateStencilBuffer(int w, int h)
 
 bool DXGraphic::CDXGraphic::CreateShaderFromCompiledFiles()
 {
-	// std::wstring_view ‚Å•¶Žš—ñ‚Ìæ“ªƒ|ƒCƒ“ƒ^‚Æ’·‚³‚¾‚¯‚ð“n‚·
+	// std::wstring_view ã§æ–‡å­—åˆ—ã®å…ˆé ­ãƒã‚¤ãƒ³ã‚¿ã¨é•·ã•ã ã‘ã‚’æ¸¡ã™
 	auto WideStr2MultiByte = [](std::wstring_view wstr) -> std::string
 	{
 		size_t size = ::WideCharToMultiByte(CP_OEMCP, 0, wstr.data(), -1, nullptr, 0, nullptr, nullptr);
@@ -324,7 +324,7 @@ bool DXGraphic::CDXGraphic::CreateShaderFromCompiledFiles()
 	if (FAILED(device->CreateVertexShader(&csodata.front(), csosize, nullptr, &vertexshader.p)))
 		return false;
 
-	// “ü—Í‚·‚éƒf[ƒ^‚ÌƒŒƒCƒAƒEƒg‚ð’è‹`
+	// å…¥åŠ›ã™ã‚‹ãƒ‡ãƒ¼ã‚¿ã®ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’å®šç¾©
 	D3D11_INPUT_ELEMENT_DESC layout[] =
 	{
 		{
@@ -463,9 +463,9 @@ bool DXGraphic::CDXGraphic::InitD3D(int w, int h)
 		return false;
 	}
 
-	// ƒŒƒ“ƒ_[ƒ^[ƒQƒbƒg‚É[“x/ƒXƒeƒ“ƒVƒ‹ƒeƒNƒXƒ`ƒƒ‚ðÝ’è
+	// ãƒ¬ãƒ³ãƒ€ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã«æ·±åº¦/ã‚¹ãƒ†ãƒ³ã‚·ãƒ«ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚’è¨­å®š
 	context->OMSetRenderTargets(1, &rtv.p, dsv);
-	// ƒrƒ…[ƒ|[ƒg‚ÌÝ’è
+	// ãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆã®è¨­å®š
 	D3D11_VIEWPORT vp[] =
 	{
 		{
@@ -501,36 +501,36 @@ void DXGraphic::CDXGraphic::Render()
 
 	if (context == nullptr) return;
 
-	// ƒoƒbƒNƒoƒbƒtƒ@‚Æ[“xƒoƒbƒtƒ@‚ÌƒNƒŠƒA
+	// ãƒãƒƒã‚¯ãƒãƒƒãƒ•ã‚¡ã¨æ·±åº¦ãƒãƒƒãƒ•ã‚¡ã®ã‚¯ãƒªã‚¢
 	FLOAT backcolor[4] = { 1.f, 1.f, 1.f, 1.f };
 	context->ClearRenderTargetView(rtv, backcolor);
 	context->ClearDepthStencilView(dsv, D3D11_CLEAR_DEPTH, 1.0f, 0);
 
-	// ’¸“_ƒf[ƒ^‚É“n‚·ƒf[ƒ^‚ÌƒŒƒCƒAƒEƒg‚ðÝ’è
+	// é ‚ç‚¹ãƒ‡ãƒ¼ã‚¿ã«æ¸¡ã™ãƒ‡ãƒ¼ã‚¿ã®ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’è¨­å®š
 	context->IASetInputLayout(inputlayout);
 
-	// ’¸“_ƒVƒF[ƒ_[, ƒWƒIƒƒgƒŠƒVƒF[ƒ_[, ƒsƒNƒZƒ‹ƒVƒF[ƒ_[‚ÌÝ’è
+	// é ‚ç‚¹ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼, ã‚¸ã‚ªãƒ¡ãƒˆãƒªã‚·ã‚§ãƒ¼ãƒ€ãƒ¼, ãƒ”ã‚¯ã‚»ãƒ«ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ã®è¨­å®š
 	context->VSSetShader(vertexshader, nullptr, 0);
 	context->GSSetShader(geometryshader, nullptr, 0);
 	context->PSSetShader(pixelshader, nullptr, 0);
 
-	// ƒ‰ƒXƒ^ƒ‰ƒCƒU[ƒXƒe[ƒg‚ðÝ’è
+	// ãƒ©ã‚¹ã‚¿ãƒ©ã‚¤ã‚¶ãƒ¼ã‚¹ãƒ†ãƒ¼ãƒˆã‚’è¨­å®š
 	context->RSSetState(rs);
 
 	MatrixBuffer matrixbuf = {
-		// ƒVƒF[ƒ_[‚Å‚Í—ñ—Dæ(column_major)‚Ås—ñƒf[ƒ^‚ð•ÛŽ‚·‚é‚½‚ß, “]’u‚ðs‚¤
+		// ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ã§ã¯åˆ—å„ªå…ˆ(column_major)ã§è¡Œåˆ—ãƒ‡ãƒ¼ã‚¿ã‚’ä¿æŒã™ã‚‹ãŸã‚, è»¢ç½®ã‚’è¡Œã†
 		DirectX::XMMatrixTranspose(d3dprojmatrix),
 		DirectX::XMMatrixTranspose(d3dviewmatrix),
 		DirectX::XMMatrixTranspose(d3dworldmatrix)
 	};
 
-	// ƒ}ƒgƒŠƒbƒNƒXƒoƒbƒtƒ@‚ÌÝ’è
+	// ãƒžãƒˆãƒªãƒƒã‚¯ã‚¹ãƒãƒƒãƒ•ã‚¡ã®è¨­å®š
 	context->UpdateSubresource(matrixbuffer, 0, nullptr, &matrixbuf, 0, 0);
 	context->VSSetConstantBuffers(0, 1, &matrixbuffer.p);
 	context->GSSetConstantBuffers(0, 1, &matrixbuffer.p);
 
 
-	// [“xEƒXƒeƒ“ƒVƒ‹ƒoƒbƒtƒ@‚ÌŽg—p•û–@‚ðÝ’è
+	// æ·±åº¦ãƒ»ã‚¹ãƒ†ãƒ³ã‚·ãƒ«ãƒãƒƒãƒ•ã‚¡ã®ä½¿ç”¨æ–¹æ³•ã‚’è¨­å®š
 	context->OMSetDepthStencilState(dss, 0);
 
 	context->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
@@ -538,7 +538,7 @@ void DXGraphic::CDXGraphic::Render()
 	context->IASetIndexBuffer(indexbuffer, DXGI_FORMAT_R32_UINT, 0);
 	context->DrawIndexed(numindices, 0, 0);
 
-	// ì¬‚µ‚½ƒvƒŠƒ~ƒeƒBƒu‚ðƒEƒBƒ“ƒhƒE‚Ö•`‰æ
+	// ä½œæˆã—ãŸãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–ã‚’ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã¸æç”»
 	if (swapchain != nullptr)
 		swapchain->Present(0, 0);
 }
@@ -643,9 +643,9 @@ bool DXGraphic::CDXGraphic::ResizeView(int w, int h)
 		return false;
 	}
 
-	// ƒŒƒ“ƒ_[ƒ^[ƒQƒbƒg‚É[“x/ƒXƒeƒ“ƒVƒ‹ƒeƒNƒXƒ`ƒƒ‚ðÝ’è
+	// ãƒ¬ãƒ³ãƒ€ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã«æ·±åº¦/ã‚¹ãƒ†ãƒ³ã‚·ãƒ«ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚’è¨­å®š
 	context->OMSetRenderTargets(1, &rtv.p, dsv);
-	// ƒrƒ…[ƒ|[ƒg‚ÌÝ’è
+	// ãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆã®è¨­å®š
 	D3D11_VIEWPORT vp[] =
 	{
 		{
